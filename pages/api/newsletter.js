@@ -1,3 +1,4 @@
+require('dotenv').config()
 import { MongoClient } from 'mongodb';
 
 async function handler(req, res) {
@@ -10,7 +11,7 @@ async function handler(req, res) {
     }
 
     const client = await MongoClient.connect(
-      'mongodb+srv://testuser:gmd8SFa0JhcaRv3o@cluster0.mdrss.mongodb.net/newsletter?retryWrites=true&w=majority'
+      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.mdrss.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
     );
     const db = client.db();
 

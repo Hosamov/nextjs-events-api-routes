@@ -4,19 +4,20 @@ import classes from './newsletter-registration.module.css';
 function NewsletterRegistration() {
   const emailInputRef = useRef();
 
-  const enteredEmail = emailInputRef.current.value;
-
   function registrationHandler(event) {
     event.preventDefault();
+
+    const enteredEmail = emailInputRef.current.value;
 
     fetch('/api/newsletter', {
       method: 'POST',
       body: JSON.stringify({ email: enteredEmail }),
       headers: {
-        'Content-Type': 'application.json',
+        'Content-Type': 'application/json',
       },
-    }).then(response => response.json())
-    .then(data => console.log(data));
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
   }
 
   return (

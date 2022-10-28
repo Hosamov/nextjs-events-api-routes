@@ -26,19 +26,18 @@ function NewsletterRegistration() {
       },
     })
       .then((response) => {
-        if(response.ok) {
+        if (response.ok) {
           return response.json();
         }
 
-        return response.json().then(data => {
+        return response.json().then((data) => {
           throw new Error(data.message || 'Something went wrong!');
-        })
-
+        });
       })
       .then((data) => {
         notificationCtx.showNotification({
           title: 'Success!',
-          message: 'Successfully registered for newsletter.',
+          message: 'Successfully registered for newsletter!',
           status: 'success',
         });
       })
@@ -57,10 +56,10 @@ function NewsletterRegistration() {
       <form onSubmit={registrationHandler}>
         <div className={classes.control}>
           <input
-            type="email"
-            id="email"
-            placeholder="Your email"
-            aria-label="Your email"
+            type='email'
+            id='email'
+            placeholder='Your email'
+            aria-label='Your email'
             ref={emailInputRef}
           />
           <button>Register</button>

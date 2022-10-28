@@ -5,19 +5,19 @@ import Notification from '../ui/notification';
 import NotificationContext from '../../store/notification-context';
 
 function Layout(props) {
-  const notifictionCtx = useContext(NotificationContext);
+  const notificationCtx = useContext(NotificationContext);
 
-  const activeNotifiction = notifictionCtx.notification;
+  const activeNotification = notificationCtx.notification;
 
   return (
     <Fragment>
       <MainHeader />
       <main>{props.children}</main>
-      {activeNotifiction && (
-        <Notifiction
-          title={activeNotifiction.title}
-          message={activeNotifiction.message}
-          status={activeNotifiction.status}
+      {activeNotification && (
+        <Notification
+          title={activeNotification.title}
+          message={activeNotification.message}
+          status={activeNotification.status}
         />
       )}
     </Fragment>
